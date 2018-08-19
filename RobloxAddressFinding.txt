@@ -1,9 +1,9 @@
-lua_getfield (With 3 args) ñ "isdstî ñ Pseudocode look for sub_xxxxxx(a2, -1, "isdstî)
-lua_getfield (With 4 args) ñ "tostringî ñ Pseudocode look for sub_xxxxxx(v2, -10002, "tostringî, -1)
-lua_setfield ñ "noise" ñ Pseudocode look for sub_xxxxxx(a1, -2, "noiseî)
-lua_tolstring ñ "Unprotected error in call to Lua API (%s)\nî ñ Pseudocode look for v1 = sub_xxxxxx(a1, -1, 0);
-lua_settop ñ "name conflict for module '%s'" ñ return sub_xxxxxx(a1, ~v8);
-lua_toboolean  "%s: %pî ñ  Pseudocode look for case 3: v6=sub_xxxxxx(a1, 1)
+lua_getfield (With 3 args) ‚Äì "isdst‚Äù ‚Äì Pseudocode look for sub_xxxxxx(a2, -1, "isdst‚Äù)
+lua_getfield (With 4 args) ‚Äì "tostring‚Äù ‚Äì Pseudocode look for sub_xxxxxx(v2, -10002, "tostring‚Äù, -1)
+lua_setfield ‚Äì "noise" ‚Äì Pseudocode look for sub_xxxxxx(a1, -2, "noise‚Äù)
+lua_tolstring ‚Äì "Unprotected error in call to Lua API (%s)\n‚Äù ‚Äì Pseudocode look for v1 = sub_xxxxxx(a1, -1, 0);
+lua_settop ‚Äì "name conflict for module '%s'" ‚Äì return sub_xxxxxx(a1, ~v8);
+lua_toboolean  "%s: %p‚Äù ‚Äì  Pseudocode look for case 3: v6=sub_xxxxxx(a1, 1)
 lua_pushvalue - "__index" - sub_xxxxxx(a1, -10002);
 lua_pushnumber - "huge" - Pseudocode look for sub_xxxxxx(a1, qword_xxxxxx); above sub_xxxxxx(a1, -2, "huge");
 lua_pushstring - "The metatable is locked" - Pseudocode look for sub_xxxxxx(a1, "The metatable is locked");
