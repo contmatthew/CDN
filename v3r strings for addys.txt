@@ -1,26 +1,6 @@
-luaB_getfenv - "getfenv" - Click on the sub below the string offset
-
-luaB_setfenv - "setfenv" - Click on the sub below the string offset
-
 lua_gettop - "yield" - Click on the sub below the string offset
 
-lua_yield - "attempt to yield across metamethod/C-call boundary" - you must be in it
-
-luaB_getmetatable - "__metatable" - Will have an if statement, each case will have 1 sub and a result setting to 1
-
-luaL_newstate - "return" - the first sub call which has no args
-
 luaL_ref - "Module code did not return exactly one value" - the first call inside the if (sub(a3) == 1) statement
-
-luaL_unref - "WeakThreadRef::addRef() %p for node %p" - luaL_unref(v7, 0xFFFFD8F0, v6); in the nearest if statement
-
-lua_rawequal - "value expected" - in an else statement alongside lua_pushboolean, lua_rawequal((int)v5, (int)v4);
-
-lua_call - "invalid replacement value (a %s)" - before case 6 break
-
-lua_checkstack - "stack overflow (%s)" - if ( !lua_checkstack(a1, 40) )
-
-lua_close - "syntax error: %s" - return lua_close(v2);
 
 lua_createtable - "The metatable is locked" - Pseudocode look for sub_xxxxxx(a1, 0, 0); (occurs twice)
 
@@ -35,10 +15,11 @@ lua_pcall - "*** Value not found ***" - if ( lua_pcall(v10, 0, 1, 0) )
 lua_pushboolean - "collect" - Pseudocode look for lua_pushboolean(a1, v5); in the else if statement
 
 lua_pushnumber - "collect" - Pseudocode look for lua_pushnumber(a1, COERCE__INT64((double)v5)); in the else statement
+lua_pushnumber - "huge" - Pseudocode look for sub_xxxxxx(a1, qword_xxxxxx); above sub_xxxxxx(a1, -2, "huge");
 
 lua_pushstring - "The metatable is locked" - Pseudocode look for sub_xxxxxx(a1, "The metatable is locked");
 
-lua_pushvalue - "__index" - Disassembly First Call
+lua_pushvalue - "__index" - sub_xxxxxx(a1, -10002);
 
 lua_setfield – "noise" – Pseudocode look for sub_xxxxxx(a1, -2, "noise”)
 
@@ -46,19 +27,12 @@ lua_setmetatable - "cannot change a protected metatable" - at the end lua_setmet
 
 lua_settable - "The metatable is locked" - lua_settable(a1, -3); above lua_setmetatable(a1, -2); and below lua_pushvalue(a1, -10002);
 
-luaB_newproxy - "newproxy only supports the arguments nil and true" - You will be in the method
-
 lua_rawgeti - "wrong number of arguments to 'insert'" - Pseudocode look for lua_rawgeti(v1, 1, v4 - 1);
-
-lua_rawseti - "wrong number of arguments to 'insert'" - Pseudocode look for sub_xxxxxx(v1, 1, v4--);
-
-lua_resume - "cannot resume non-suspended coroutine" - You must be in the function
 
 lua_newthread - "Lua function expected" - Pseudocode look for v1 = lua_newthread(a1);
 
-lua_settop – "name conflict for module '%s'" – Disassembly view, lua_settop 1st call
-
-lua_xmove - "Lua function expected" - Pseudocode find lua_xmove(a1, v4, 1); above return 1;
+lua_settop – "name conflict for module '%s'" – return sub_xxxxxx(a1, ~v8);
+lua_settop - "name conflict for module '%2'" - lua_settop(a1, -2);
 
 lua_type - "tables cannot be cyclic" - Pseudocode look for switch ( lua_type(a1, a2) )
 
@@ -66,83 +40,9 @@ lua_toboolean  "%s: %p" –  Pseudocode look for case 3: v6=lua_toboolean(a1, 1)
 
 lua_touserdata - "%s expected, got %s" - Psuedocode look for v2 = lua_touserdata(a1, 2);
 
+lua_getmetatable - "value expected" - Pseudocode find if ( sub_xxxxxx(a1, 1) )
 
-
-luaD_call - lua_call - very first called sub
-
-lua_touserdata - luaB_newproxy - v1 = lua_newuserdata(a1, 0);
-
-luaD_pcall - lua_pcall - the only sub with 5 args
-
-lua_step - luaD_call - result = lua_step(a1);
-
-luaD_precall - luaD_call - if (!luaD_precall(a1, a2, a3))
-
-luaD_rawrunprotected - luaD_pcall - result = luaD_rawrunprotected(v5, (void (__cdecl *)(int, int))a2, a3);
-
-luaF_close - luaD_pcall - inside if(result), luaF_close(v5, a4 + some_offset);
-
-luaL_error - luaB_setfenv - Very last sub as part of the large if statement
-
-luaL_getmetafield - luaB_getmetatable - Inside the first if case as luaL_getmetafield(a1, 1, "__metatable")
-
-luaS_newlstr - lua_getfield (4 args) - v6 = luaS_newlstr(a1, (int)a3, strlen(a3));
-
-luaV_execute - luaD_call - the result of the !luaD_precall statement
-
-luaV_gettable - lua_getfield (4 args) - luaV_gettable(a1, v4, (int)&v6, *(_DWORD *)(a1 + 12), a4 != 0);
-
-luaV_settable - lua_setfield - luaV_settable(a1, v3, (int)&v6, v4);
-
-lua_atpanic - luaL_newstate - lua_atpanic(result, (int)panic);
-
-lua_getfenv - luaB_getfenv - in the else statement, lua_getfenv(a1, -1);
-
-lua_getfield (3 args) - lua_getfield (2 args) - the only call, duh!
-
-lua_getmetatable - luaL_getmetafield - if ( !lua_getmetatable(a1, a2) ) return 0;
-
-lua_insert - luaB_setfenv - final if statement, middle call of lua_insert(a1, -2); (Bottom is lua_setfenv)
-
-lua_newstate - luaL_newstate - first call
-
-lua_newuserdata - luaB_newproxy - v1 = lua_newuserdata(a1, 0);
-
-lua_rawget - luaL_getmetafield - lua_rawget(a1, -2); after first if statements and before last if statement
-
-lua_rawset - luaB_newproxy - lua_rawset(a1, -10003); inside the end if statement
-
-lua_remove - luaL_getmetafield - very bottom call of lua_remove(a1, -2);
-
-lua_setfenv - luaB_setfenv - !lua_setfenv(a1, -2) as part of the if statement or lua_setfenv(a1, -2); below insert
-
-lua_settop - luaL_getmetafield - lua_settop(a1, -3); in the if before return 0;
-
-panic - luaL_newstate - lua_atpanic(result, (int)panic);
-
-lua_tolstring - panic - v1 = lua_tolstring(a1, -1, 0);
-
-lua_pushthread - luaB_setfenv - lua_pushthread(a1) in the last if statement
-
-luaF_findupval: luaF_close > sub below
-
-xorconst: lua_pushnumber > _mm_xor_ps(*(__m128 *)&dword_XXXXXX
-
-lua_pushcclosure: "ipairs" > 1st call above (must be in IDA View-A)
-
-luaF_newCclosure: lua_pushcclosure > IDA View-A > 2nd call
-
-luaL_loadprotected: "oldResult, moduleRef" > IDA View-A > 3rd call below
-
-Deserializer: luaL_loadprotected > 1st call
-
-luaF_freeproto: luaF_newproto > 2 subs down
-
-index2adr: lua_getfield > 1st call
-
-L->GT offset: index2adr > psuedocode > go to case LUA_GLOBALSINDEX > result = L->GT
+lua_tolstring - "panic" - v1 = lua_tolstring(a1, -1, 0);
+lua_tolstring - "Unprotected error in call to Lua API (%s)\n” – Pseudocode look for v1 = sub_xxxxxx(a1, -1, 0);
 
 luastate - "Unable to create a new thread for %s" - look for the definition of v50
-
-rawrjz - "C stack overflow" - Pseudocode find v5 = sub_xxxxxx(a1, (void (__cdecl *)(int, int))sub_734F20, *(_DWORD *)(a1 + 20) - 16 * a2); then open the method and hit tab to find the jz in disassembly
-Identity method - "%s is not a scriptable property." - Pseudocode if (var) only sub with no args
