@@ -40,7 +40,7 @@ lua_pushstring - "The metatable is locked" - Pseudocode look for sub_xxxxxx(a1, 
 
 lua_pushvalue - "__index" - Disassembly First Call
 
-lua_setfield – "noise" – Pseudocode look for sub_xxxxxx(a1, -2, "noise”)
+lua_setfield â€“ "noise" â€“ Pseudocode look for sub_xxxxxx(a1, -2, "noiseâ€)
 
 lua_setmetatable - "cannot change a protected metatable" - at the end lua_setmetatable(a1, 1);
 
@@ -56,13 +56,13 @@ lua_resume - "cannot resume non-suspended coroutine" - You must be in the functi
 
 lua_newthread - "Lua function expected" - Pseudocode look for v1 = lua_newthread(a1);
 
-lua_settop – "name conflict for module '%s'" – Disassembly view, lua_settop 1st call
+lua_settop â€“ "name conflict for module '%s'" â€“ Disassembly view, lua_settop 1st call
 
 lua_xmove - "Lua function expected" - Pseudocode find lua_xmove(a1, v4, 1); above return 1;
 
 lua_type - "tables cannot be cyclic" - Pseudocode look for switch ( lua_type(a1, a2) )
 
-lua_toboolean  "%s: %p" –  Pseudocode look for case 3: v6=lua_toboolean(a1, 1)
+lua_toboolean  "%s: %p" â€“  Pseudocode look for case 3: v6=lua_toboolean(a1, 1)
 
 lua_touserdata - "%s expected, got %s" - Psuedocode look for v2 = lua_touserdata(a1, 2);
 
@@ -124,7 +124,23 @@ lua_tolstring - panic - v1 = lua_tolstring(a1, -1, 0);
 
 lua_pushthread - luaB_setfenv - lua_pushthread(a1) in the last if statement
 
+luaF_findupval: luaF_close > sub below
 
+xorconst: lua_pushnumber > _mm_xor_ps(*(__m128 *)&dword_XXXXXX
+
+lua_pushcclosure: "ipairs" > 1st call above (must be in IDA View-A)
+
+luaF_newCclosure: lua_pushcclosure > IDA View-A > 2nd call
+
+luaL_loadprotected: "oldResult, moduleRef" > IDA View-A > 3rd call below
+
+Deserializer: luaL_loadprotected > 1st call
+
+luaF_freeproto: luaF_newproto > 2 subs down
+
+index2adr: lua_getfield > 1st call
+
+L->GT offset: index2adr > psuedocode > go to case LUA_GLOBALSINDEX > result = L->GT
 
 luastate - "Unable to create a new thread for %s" - look for the definition of v50
 
