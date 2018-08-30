@@ -1,4 +1,54 @@
 lua_gettop - "yield" - Click on the sub below the string offset
+lua_gettop - "Region is too large" - XREF 3rd - (ASSEMBLY) call sub under numbers (C++) v37 = sub_7389C0(a2); UNDER NUMBERS
+
+--2ND GETTOP IS BETTER
+
+luaL_ref - "Module code did not return exactly one value" - the first call inside the if (sub(a3) == 1) statement
+
+lua_createtable - "The metatable is locked" - Pseudocode look for sub_xxxxxx(a1, 0, 0); (occurs twice)
+
+lua_getfield (2 args) - "isdst" - lua_getfield(a2, -1, "isdst");
+
+lua_next - "foreach" sub below string offset - if ( lua_next(a1, 1) ) before while(1)
+
+lua_pushnil - "foreach" sub below string offset - above if ( lua_next(a1, 1) )
+
+lua_pcall - "*** Value not found ***" - if ( lua_pcall(v10, 0, 1, 0) )
+
+lua_pushboolean - "collect" - Pseudocode look for lua_pushboolean(a1, v5); in the else if statement
+
+lua_pushnumber - "collect" - Pseudocode look for lua_pushnumber(a1, COERCE__INT64((double)v5)); in the else statement
+lua_pushnumber - "huge" - Pseudocode look for sub_xxxxxx(a1, qword_xxxxxx); above sub_xxxxxx(a1, -2, "huge");
+
+lua_pushstring - "The metatable is locked" - Pseudocode look for sub_xxxxxx(a1, "The metatable is locked");
+
+lua_pushvalue - "__index" - sub_xxxxxx(a1, -10002);
+
+lua_setfield – "noise" – Pseudocode look for sub_xxxxxx(a1, -2, "noise”)
+
+lua_setmetatable - "cannot change a protected metatable" - at the end lua_setmetatable(a1, 1);
+
+lua_settable - "The metatable is locked" - lua_settable(a1, -3); above lua_setmetatable(a1, -2); and below lua_pushvalue(a1, -10002);
+
+lua_rawgeti - "wrong number of arguments to 'insert'" - Pseudocode look for lua_rawgeti(v1, 1, v4 - 1);
+
+lua_newthread - "Lua function expected" - Pseudocode look for v1 = lua_newthread(a1);
+
+lua_settop – "name conflict for module '%s'" – return sub_xxxxxx(a1, ~v8);
+lua_settop - "name conflict for module '%2'" - lua_settop(a1, -2);
+
+lua_type - "tables cannot be cyclic" - Pseudocode look for switch ( lua_type(a1, a2) )
+
+lua_toboolean  "%s: %p" –  Pseudocode look for case 3: v6=lua_toboolean(a1, 1)
+
+lua_touserdata - "%s expected, got %s" - Psuedocode look for v2 = lua_touserdata(a1, 2);
+
+lua_getmetatable - "value expected" - Pseudocode find if ( sub_xxxxxx(a1, 1) )
+
+lua_tolstring - "panic" - v1 = lua_tolstring(a1, -1, 0);
+lua_tolstring - "Unprotected error in call to Lua API (%s)\n” – Pseudocode look for v1 = sub_xxxxxx(a1, -1, 0);
+
+luastate - "Unable to create a new thread for %s" - look for the definition of v50
 
 luaL_ref - "Module code did not return exactly one value" - the first call inside the if (sub(a3) == 1) statement
 
