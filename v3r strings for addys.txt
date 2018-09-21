@@ -35,7 +35,6 @@ lua_rawgeti - "wrong number of arguments to 'insert'" - Pseudocode look for lua_
 lua_newthread - "Lua function expected" - Pseudocode look for v1 = lua_newthread(a1);
 
 lua_settop – "name conflict for module '%s'" – return sub_xxxxxx(a1, ~v8);
-lua_settop - "name conflict for module '%2'" - lua_settop(a1, -2);
 
 lua_type - "tables cannot be cyclic" - Pseudocode look for switch ( lua_type(a1, a2) )
 
