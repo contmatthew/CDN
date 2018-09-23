@@ -1,5 +1,5 @@
 lua_gettop - "yield" - Click on the sub below the string offset
-lua_gettop - "Region is too large" - XREF 3rd - (ASSEMBLY) call sub under numbers (C++) v37 = sub_7389C0(a2); UNDER NUMBERS
+lua_gettop - "Region is too large" - XREF 2rd - (ASSEMBLY) call sub under numbers (C++) v37 = sub_7389C0(a2); UNDER NUMBERS
 
 --2ND GETTOP IS BETTER
 
