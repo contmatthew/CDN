@@ -95,3 +95,5 @@ lua_tolstring - "panic" - v1 = lua_tolstring(a1, -1, 0);
 lua_tolstring - "Unprotected error in call to Lua API (%s)\n” – Pseudocode look for v1 = sub_xxxxxx(a1, -1, 0);
 
 luastate - "Unable to create a new thread for %s" - look for the definition of v50
+
+pushlightuserdata - "Libraries should return exactly 1 table" - sub_xxxxxx(a1, (int)sub_xxxxxx); (below 2nd else)
