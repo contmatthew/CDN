@@ -23,7 +23,7 @@ lua_newuserdata > 2nd call
 "newproxy only supports the arguments nil and true"
 
 lua_type > 1st call
-lua_touserdata: if ( sub_852DC0(a1, 1) --3rd call--
+lua_touserdata: if ( sub_852DC0(a1, 1) --3rd call-- or --2nd call--
 lua_getmetatable >3rd call
 lua_getfield > 1st call after __type
 "__type"
