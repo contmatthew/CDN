@@ -1,0 +1,34 @@
+lua_createtable(a1, 0, 0), lua_pushstring(a1, "The metatable is locked") ,lua_pushvalue(a1, -10002),lua_settable(a1, -3)
+String "__index" 
+
+lua_tonumber >case2: >v42 = sub_73EB40(a1, v7);
+lua_pushnil > case:7 > 2nd sub below v14 = 0 (above lua_next)
+lua_next > while ( lua_next(a1, -2) )
+lua_toboolean  > case 3:  BYTE3(a2) = lua_toboolean(a1, v7) != 0;
+"tables cannot be cyclic"
+
+lua_pcall > "*** value not found ***" > if (sub_xxxxxx(v10, 0, 1, 0))"
+lua_pushcclosure >"noise" >sub_xxxxxx(0)
+lua_newthread >"Lua function expected"> v1 = 0x7445E0(a1);
+lual_ref > "Module code did not return exactly one value" > v4 = sub_7200F0(a3, -10000); below if ( sub_744020(a3) == 1 )
+lua_rawgeti > "too many results to unpack" last sub above return v9;
+luapushlightuserdata > "Libraries should return exactly 1 result, and shouldn't wait"  > sub_73D610(a1, sub_ADB150);
+lua_tolstring > "PANIC: unprotected error in call to Lua API (%s)\n" >v0 = sub_727500(a1, -1, 0);
+ScriptContext > "could not convert calendar time to local time" first off_11XXXXX
+lua_state >"Unable to create a new thread for %s" > v51
+
+lua_pushboolean >3rd call from below
+lua_settop >1st call
+lua_newuserdata > 2nd call
+"newproxy only supports the arguments nil and true"
+
+lua_type > 1st call
+lua_touserdata: if ( sub_852DC0(a1, 1) --3rd call--
+lua_getmetatable >3rd call
+lua_getfield > 1st call after __type
+"__type"
+
+lua_gettop >xref 2nd call>  v39 = sub_744020(a2); above v7 = 8
+lua_pushnumber > go down from gettop> below else v16 =  sub_851910(v16); *(__int64 *)((char *)&v50 + 4); lua_pushnumber(v16);
+"Region is too large"
+
